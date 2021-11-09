@@ -8,7 +8,7 @@ basic functionalities, i.e. login system, evaluation and opinion systems, approp
 subscription for an available date, etc.
 
 Team:
-Kamil Cessak – Frontend engineer
-Szymon Jędrych – Backend engineer
-Paweł Lysko – tester
-Kacper Siembida – team leader 
+Kamil Cessak – Frontend engineer - https://mie99.atlassian.net/issues/?filter=10002&atlOrigin=eyJpIjoiOWQ1MjExNDJiYzFjNDg0OThkNWIyOTM1MTFmNDQxZmUiLCJwIjoiaiJ9
+Szymon Jędrych – Backend engineer - https://mie99.atlassian.net/issues/?filter=10005&atlOrigin=eyJpIjoiNDQ4OWJiMWQ3MmRlNDIwNjg0ZTFhMjlmYmE5MGUyY2MiLCJwIjoiaiJ9
+Paweł Lysko – tester - https://mie99.atlassian.net/issues/?filter=10003&atlOrigin=eyJpIjoiZjk0NWJmYmE5ZTUyNDU1OTkyNTk4Y2QzY2I1MzlkMmIiLCJwIjoiaiJ9
+Kacper Siembida – team leader - https://mie99.atlassian.net/issues/?filter=10004&atlOrigin=eyJpIjoiMGQ5MWE4MGZkNTQ2NGI2Yjg3NTY4YTQwMDA5ZjkzMTEiLCJwIjoiaiJ9
