@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+
+  react-app:
+    build: ./zawodowcy.client
+    container_name: react-app
+    ports:
+      - 3000:3000
+    links:
+      - aspnet-api
+  
+  aspnet-api:
+    build:
+      context: ./Zawodowcy.Api
+      dockerfile: /Zawodowcy.Api/Dockerfile
+    container_name: aspnet-api
+    ports:
+      - 8080:80
+      - 443:443
+  
