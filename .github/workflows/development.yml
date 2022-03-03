@@ -1,0 +1,53 @@
+﻿
+name: CI
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+
+env:
+  DOCKER_APP_CONTEXT: ./src/Zawodowcy.Api
+  DOCKER_DOCKERFILE: ./src/Zawodowcy.Api/Zawodowcy.Api/Dockerfile
+  DOCKER_IMAGE_NAME: api
+  DOCKER_PROJECT_NAME: api
+  IMAGE_REGISTRY_URL: docker.pkg.github.com
+
+jobs:
+  test:
+    name: Test project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test application
+        run: |
+          cd src/Zawodowcy.Api
+          dotnet test --no-restore --verbosity normal
+  
+  build:
+    name: Build application and deploy artifact to packages
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    needs: test
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: ${{env.DOCKER_APP_CONTEXT}}
+          file: ${{env.DOCKER_DOCKERFILE}}
+          tags: ${{env.DOCKER_IMAGE_NAME}}:development
+          outputs: type=docker,dest=/tmp/${{env.DOCKER_PROJECT_NAME}}.tar
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{env.DOCKER_PROJECT_NAME}}
+          path: /tmp/${{env.DOCKER_PROJECT_NAME}}.tar
